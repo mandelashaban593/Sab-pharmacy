@@ -14,7 +14,7 @@ $customer_name = $_POST['customer_name'];
 
 
 
-
+/*
 echo "Invoice: ";
 echo $invoice;
 echo "<br/>";
@@ -41,7 +41,7 @@ echo $discount;
 echo "<br/>";
 
 echo "Customer Nname: ";
-echo $customer_name;
+echo $customer_name;*/
 
 
 
@@ -68,7 +68,7 @@ $sale_price=$price-$discount;
 $tot_sale_price=$sale_price*$qty;
 $tot_profit=$profit*$qty;
 
-
+/*
 echo "Price: ";
 echo $price;
 echo "<br/>";
@@ -97,10 +97,10 @@ echo "<br/>";
 
 echo "Total Profit";
 echo $tot_profit;
-echo "\n";
+echo "\n";*/
 
 // query
-$sql = "INSERT INTO sales_order (invoice,med_name,qty,amount,category, price,profit,date,discount,customer_name) VALUES ('$invoice','$med_name','$qty','$tot_sale_price','$category','$sale_price','$tot_profit','$date',0.0, '$customer_name')";
+$sql = "INSERT INTO sales_order (invoice,med_name,qty,amount,category, price,profit,sales_date,discount,customer_name) VALUES ('$invoice','$med_name','$qty','$tot_sale_price','$category','$sale_price','$tot_profit','$date',0.0, '$customer_name')";
 $q = mysqli_query($con, $sql) or die(mysqli_error($con));
 
 
@@ -115,8 +115,6 @@ $q = mysqli_query($con, $sql) or die(mysqli_error($con));
 	header("location: sales.php?pay_type=$pay_type&invoice=$invoice&error=$qtygreat&customer_name=$customer_name");
 	
 }
-
-
 
 
 header("location: sales.php?pay_type=$pay_type&invoice=$invoice&profit=$tot_profit&qty=$qty&customer_name=$customer_name");

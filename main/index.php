@@ -160,6 +160,9 @@ if($position) {
 			<li><a href="products.php"><i class="icon-list-alt icon-2"></i> Medicines</a>    
 			                                 </li>
 
+			<li><a href="order-supplies.php"><i class="icon-list-alt icon-2"></i> Supplies</a>    
+			                                 </li>
+
 			<li><a href="search_asupplier.php"><i class="icon-group icon-2x"></i><br>  Suppliers </a>                                   </li>
 			<li><a href="select_customers.php"><i class="icon-group icon-2x"></i><br>  customers </a>                                 </li>
 			
@@ -220,6 +223,9 @@ if($position=="pharmacist"){?>
 <a href="ordermedicines.php"><i class="icon-list-alt icon-2x"></i><br> Order Medicines</a>
 <a href="products.php"><i class="icon-list-alt icon-2x"></i><br> Medicines</a>
 <a href="medorders.php"><i class="icon-list-alt icon-2x"></i><br> Orders</a> 
+
+<a href="order-supplies.php"><i class="icon-list-alt icon-2"></i><br>  Supplies</a>    
+			                                 </li>
 <a href="search_asupplier.php"><i class="icon-group icon-2x"></i><br>  Suppliers </a>  
 <a href="select_customers.php"><i class="icon-group icon-2x"></i><br>  customers </a>  
 

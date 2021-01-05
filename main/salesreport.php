@@ -144,21 +144,22 @@ Sales Report from&nbsp;<?php echo $_GET['d1'] ?>&nbsp;to&nbsp;<?php echo $_GET['
 			<?php
 				$d1=$_GET['d1'];
 				$d2=$_GET['d2'];
-				$result = $db->prepare("SELECT * FROM sales_order WHERE date BETWEEN :a AND :b ORDER by transaction_id DESC ");
-				$result->bindParam(':a', $d1);
-				$result->bindParam(':b', $d2);
-				$result->execute();
-				for($i=0; $row = $result->fetch(); $i++){
+				$sql = "SELECT  * FROM sales_order WHERE   sales_date >= '$d1' AND
+        sales_date   <= '$d2' ";
+
+		$query2 = mysqli_query($con, $sql) or die(mysqli_error($con));
+
+while($row = mysqli_fetch_array($query2)){
 			?>
 			<tr class="record">
 			<td>STI-00<?php echo $row['transaction_id']; ?></td>
-			<td><?php echo $row['date']; ?></td>
-			<td><?php echo $row['gen_name']; ?></td>
+			<td><?php echo $row['sales_date']; ?></td>
+			<td><?php echo $row['med_name']; ?></td>
 			<td><?php echo $row['invoice']; ?></td>
 			<td><?php
 			$dsdsd=$row['amount'];
 			echo formatMoney($dsdsd, true);
-			echo $dsdsd;
+			
 			?></td>
 			<td><?php
 			$zxc=$row['profit'];
@@ -191,7 +192,7 @@ Sales Report from&nbsp;<?php echo $_GET['d1'] ?>&nbsp;to&nbsp;<?php echo $_GET['
 				}
 				$d1=$_GET['d1'];
 				$d2=$_GET['d2']; 
-				$results = $db->prepare("SELECT sum(amount) FROM sales_order WHERE date BETWEEN :a AND :b");
+				$results = $db->prepare("SELECT sum(amount) FROM sales_order WHERE sales_date BETWEEN :a AND :b");
 				$results->bindParam(':a', $d1);
 				$results->bindParam(':b', $d2);
 				$results->execute();
@@ -203,7 +204,7 @@ Sales Report from&nbsp;<?php echo $_GET['d1'] ?>&nbsp;to&nbsp;<?php echo $_GET['
 			</th>
 				<th colspan="1" style="border-top:1px solid #999999">
 			<?php 
-				$resultia = $db->prepare("SELECT sum(profit) FROM sales_order  WHERE date BETWEEN :c AND :d");
+				$resultia = $db->prepare("SELECT sum(profit) FROM sales_order  WHERE sales_date BETWEEN :c AND :d");
 				$resultia->bindParam(':c', $d1);
 				$resultia->bindParam(':d', $d2);
 				$resultia->execute();

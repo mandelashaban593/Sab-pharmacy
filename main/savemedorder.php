@@ -26,7 +26,7 @@ $o_price = $row['o_price'];
 $profit  =$row['profit'];
 $date_arrival = $row['date_arrival'];
 $del_no = $row['del_no'];
-$qty_left = $row['qty_left']-$quantity_order;
+$qty_left = $quantity-$quantity_order;
 //moisture content deduction
 $tot_order_price = $o_price*$qty_left;
 

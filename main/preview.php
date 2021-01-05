@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<?php require_once ('auth.php');?>
+<?php 
+require_once ('auth.php');
+require '../conn2.php';
+?>
 <title>
 POS
 </title>
@@ -38,7 +41,6 @@ function Clickheretoprint()
 </script>
 <?php
 $invoice=$_GET['invoice'];
-include('../connect.php');
 $result = $db->prepare("SELECT * FROM sales WHERE invoice_number= :userid");
 $result->bindParam(':userid', $invoice);
 $result->execute();
